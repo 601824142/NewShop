@@ -1,0 +1,49 @@
+#配置端口
+server:
+  port: 9090
+
+
+spring:
+  #配置数据库连接
+  datasource:
+    url: jdbc:mysql://47.112.22.169/myshop
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+
+  #RabbitMQ配置(整合)
+  rabbitmq:
+    host: 47.112.22.169
+    username: wan
+    password: 83740932
+    port: 5672
+    virtual-host: /wan
+  redis:
+    host: 47.112.22.169
+
+  #配置solr查询中间件地址
+  data:
+    solr:
+      host: http://47.112.22.169:8080/solr
+
+
+#配置dubbo注册中心管理界面
+dubbo:
+  #接口名
+  application:
+    name: shop_service
+  #zookeeper注册中心地址
+  registry:
+    address: zookeeper://47.112.22.169:2181
+  #注册中心协议
+  protocol:
+    #协议名称
+    name: dubbo
+    #-1代表自行寻找空端口
+    port: -1
+  #若为消费者,则不检查提供者启动
+  consumer:
+    check: false
+
+
+
